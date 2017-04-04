@@ -8,10 +8,10 @@ function randomString(length, charset) {
 	return string;
 }
 
-function randomNumber(min, max) {
-	return Math.floor(Math.random() * (max - min) + min);
+function randomBoolean() {
+    return randomNumber(0, 2) ? true : false;
 }
 
-function fake() {
-    return "Fake Function";
+function randomNumber(min, max) {
+	return Math.floor(Math.random() * (max - min) + min);
 }

@@ -24,12 +24,13 @@
         {
             "run_at": "document_start",
             "matches": ["<all_urls>"],
-            "js": ["js/random.js", "js/content.js"]
+            "js": ["js/inject.js"]
         }
     ],
     "permissions": [
         "webRequest",
         "webRequestBlocking",
         "<all_urls>"
-    ]
+    ],
+    "web_accessible_resources": ["js/random.js", "js/api/navigator.js"]
 }
