@@ -32,5 +32,9 @@
         "webRequestBlocking",
         "<all_urls>"
     ],
-    "web_accessible_resources": ["js/random.js", "js/api/navigator.js"]
+    "web_accessible_resources": [
+        "js/random.js",
+        "js/api/navigator.js",
+        "js/api/document.js"
+    ]
 }
