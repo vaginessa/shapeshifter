@@ -20,10 +20,10 @@ Enjoy :)
 
 Type "chrome://extensions/" in your address bar.  
 Check "Developer Mode".  
-Click "Load unpacked extension..."  
+Click "Load unpacked extension...".  
 Navigate to the project root directory and choose the manifest.json file.  
 Enjoy :)
 
 ## Releases
 
-When I am confident that this extension has implemented enough functionality to be considered good enough for an initial release. I will upload it to the Google Chrome Web Store and the Mozilla Firefox Addons Site.
+When I am confident that this extension has implemented enough functionality to be considered good enough for an initial release, I will upload it to the Google Chrome Web Store and the Mozilla Firefox Addons Site.
