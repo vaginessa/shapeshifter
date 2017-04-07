@@ -95,14 +95,12 @@
             enumerable: true,
             writable: false
         },
-        /*
         mimeTypes: {
             value: randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"),
             configurable: false,
             enumerable: true,
             writable: false
         },
-        */
         onLine: {
             value: randomBoolean(),
             configurable: false,
@@ -129,14 +127,12 @@
             enumerable: true,
             writable: false
         },
-        /*
         plugins: {
             value: randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"),
             configurable: false,
             enumerable: true,
             writable: false
         },
-        */
         product: {
             value: randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"),
             configurable: false,
