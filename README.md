@@ -8,7 +8,7 @@ This is a WIP (work in progress). Until further notice do not rely on this tool 
 
 Download this project as a zip file or clone this repository:
 
-$ git clone git@github.com:Snapper26/shapeshifter.git
+$ git clone https://github.com/Snapper26/shapeshifter.git
 
 ### Firefox
 Type "about:debugging" in your address bar.  
