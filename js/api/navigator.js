@@ -22,6 +22,8 @@
         });
     }
     
+    //Navigator.prototype.testValue = "Hello World";
+    
     Object.defineProperties(modifiedNavigator, {
         /*
         activeVRDisplays: {

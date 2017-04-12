@@ -10,7 +10,7 @@ function randomAcceptEncodingHeader() {
 	return "NotYetImplemented";
 }
 function randomAcceptLanguageHeader() {
-	return "NotYetImplemented";
+	return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
 }
 function randomAuthorizationHeader() {
 	return "NotYetImplemented";
@@ -67,6 +67,7 @@ function rewriteHttpHeaders(e) {
 		else if (header.name.toLowerCase() === "accept-encoding") {
 		}
 		else if (header.name.toLowerCase() === "accept-language") {
+            header.value = randomAcceptLanguageHeader();
 		}
 		else if (header.name.toLowerCase() === "authorization") {
 		}

@@ -1,6 +1,5 @@
 function inject(filePath, callback) {
     var script = document.createElement('script');
-    // TODO: add "script.js" to web_accessible_resources in manifest.json
     script.src = chrome.extension.getURL(filePath);
     script.onload = function() {
         this.remove();
@@ -16,5 +15,8 @@ inject("js/random.js", function() {
     });
     inject("js/api/navigator.js", function() {
         console.log("[INFO] Injected Navigator API ...");
+    });
+    inject("js/api/canvas.js", function() {
+        console.log("[INFO] Injected Canvas API ...")
     });
 });

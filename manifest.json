@@ -34,7 +34,8 @@
     ],
     "web_accessible_resources": [
         "js/random.js",
+        "js/api/document.js",
         "js/api/navigator.js",
-        "js/api/document.js"
+        "js/api/canvas.js"
     ]
 }
