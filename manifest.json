@@ -36,6 +36,7 @@
         "js/random.js",
         "js/api/document.js",
         "js/api/navigator.js",
-        "js/api/canvas.js"
+        "js/api/canvas.js",
+        "js/api/history.js"
     ]
 }

@@ -19,4 +19,7 @@ inject("js/random.js", function() {
     inject("js/api/canvas.js", function() {
         console.log("[INFO] Injected Canvas API ...")
     });
+    inject("js/api/history.js", function() {
+        console.log("[INFO] Injected History API ...")
+    });
 });
