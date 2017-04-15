@@ -1,9 +1,15 @@
 (function() {
     'use strict';
     
+    function fakeLength() {
+        console.log("[ALERT] " + window.location.hostname + " accessed property History.length");
+        
+        return randomNumber(0, 256);
+    }
+    
     Object.defineProperties(History.prototype, {
         length: {
-            value: randomNumber(0, 256),
+            value: fakeLength(),
             configurable: false,
             enumerable: true,
             writable: false

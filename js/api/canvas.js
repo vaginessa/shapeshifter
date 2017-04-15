@@ -4,6 +4,9 @@
     var originalToDataURL = HTMLCanvasElement.prototype.toDataURL;
     
     HTMLCanvasElement.prototype.toDataURL = function(type, encoderOptions) {
+        
+        console.log("[ALERT] " + window.location.hostname + " called HTMLCanvasElement.toDataURL()");
+        
         var originalCanvas = originalToDataURL.call(this, type, encoderOptions);
         
         // TODO: Add randomness by modifying random pixel values.
@@ -15,6 +18,9 @@
     var originalToBlob = HTMLCanvasElement.prototype.toBlob;
     
     HTMLCanvasElement.prototype.toBlob = function(callback, mimeType, qualityArgument) {
+        
+        console.log("[ALERT] " + window.location.hostname + " called HTMLCanvasElement.toBlob()");
+        
         var fakeCallback = function (blob) {
             
             // TODO: Add randomness by modifying random pixel values.
