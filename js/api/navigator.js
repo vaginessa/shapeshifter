@@ -1,30 +1,7 @@
 (function() {
     'use strict';
     
-    var navigator = window.navigator;
-    
-    var modifiedNavigator;
-    
-    if ('userAgent' in Navigator.prototype) {
-        // Chrome 43+ moved all properties from navigator to the prototype,
-        // so we have to modify the prototype instead of navigator.
-        modifiedNavigator = Navigator.prototype;
-    }
-    else {
-        // Chrome 42- defined the property on navigator.
-        modifiedNavigator = Object.create(navigator);
-        
-        Object.defineProperty(window, 'navigator', {
-            value: modifiedNavigator,
-            configurable: false,
-            enumerable: false,
-            writable: false
-        });
-    }
-    
-    //Navigator.prototype.testValue = "Hello World";
-    
-    Object.defineProperties(modifiedNavigator, {
+    Object.defineProperties(Navigator.prototype, {
         /*
         activeVRDisplays: {
             value: randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"),
@@ -32,13 +9,13 @@
             enumerable: true,
             writable: false
         },
-        */
         appCodeName: {
             value: randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"),
             configurable: false,
             enumerable: true,
             writable: false
         },
+        */
         appName: {
             value: randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"),
             configurable: false,
@@ -72,14 +49,14 @@
         },
         */
         hardwareConcurrency: {
-            value: randomNumber(0, 256),
+            value: randomNumber(0, 9),
             configurable: false,
             enumerable: true,
             writable: false
         },
         /*
         javaEnabled: {
-            value: randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"),
+            value: randomBoolean(),
             configurable: false,
             enumerable: true,
             writable: false
