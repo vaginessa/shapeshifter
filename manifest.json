@@ -37,6 +37,7 @@
         "js/api/document.js",
         "js/api/navigator.js",
         "js/api/canvas.js",
-        "js/api/history.js"
+        "js/api/history.js",
+        "js/api/battery.js"
     ]
 }

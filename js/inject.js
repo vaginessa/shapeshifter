@@ -22,4 +22,7 @@ inject("js/random.js", function() {
     inject("js/api/history.js", function() {
         console.log("[INFO] Injected History API ...")
     });
+    inject("js/api/battery.js", function() {
+        console.log("[INFO] Injected Battery API ...")
+    });
 });
