@@ -7,12 +7,12 @@
         
         console.log("[ALERT] " + window.location.hostname + " called HTMLCanvasElement.toDataURL()");
         
-        var originalCanvas = originalToDataURL.call(this, type, encoderOptions);
+        var originalDataURL = originalToDataURL.call(this, type, encoderOptions);
         
         // TODO: Add randomness by modifying random pixel values.
         // This will destroy the consistency of the hash calculation.
         
-        return originalCanvas;
+        return originalDataURL;
     };
     
     var originalToBlob = HTMLCanvasElement.prototype.toBlob;

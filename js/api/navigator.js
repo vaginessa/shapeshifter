@@ -1,270 +1,238 @@
 (function() {
     'use strict';
     
-    function fakeActiveVRDisplays() {
-        console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.activeVRDisplays");
-        
-        return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    }
+    const fakeActiveVRDisplaysValue       = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    const fakeAppCodeNameValue            = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    const fakeAppNameValue                = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    const fakeAppVersionValue             = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    const fakeBatteryValue                = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    const fakeConnectionValue             = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    const fakeGeoLocationValue            = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    const fakeHardwareConcurrencyValue    = randomNumber(0, 9);
+    const fakeJavaEnabledValue            = randomBoolean();
+    const fakeLanguageValue               = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    const fakeLanguagesValue              = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    const fakeMimeTypesValue              = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    const fakeOnLineValue                 = randomBoolean();
+    const fakeOscpuValue                  = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    const fakePermissionsValue            = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    const fakePlatformValue               = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    const fakePluginsValue                = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    const fakeProductValue                = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    const fakeServiceWorkerValue          = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    const fakeStorageValue                = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    const fakeUserAgentValue              = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
     
-    function fakeAppCodeName() {
-        console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.appCodeName");
-        
-        return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    }
-    
-    function fakeAppName() {
-        console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.appName");
-        
-        return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    }
-    
-    function fakeAppVersion() {
-        console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.appVersion");
-        
-        return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    }
-    
-    // TODO: This is getBattery() now
-    function fakeBattery() {
-        console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.battery");
-        
-        return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    }
-    
-    function fakeConnection() {
-        console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.connection");
-        
-        return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    }
-    
-    function fakeGeoLocation() {
-        console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.geolocation");
-        
-        return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    }
-    
-    function fakeHardwareConcurrency() {
-        console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.hardwareConcurrency");
-        
-        return randomNumber(0, 9);
-    }
-    
-    // TODO: javaEnabled() is a method, not a property
-    function fakeJavaEnabled() {
-        console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.javaEnabled");
-        
-        return randomBoolean();
-    }
-    
-    function fakeLanguage() {
-        console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.language");
-        
-        return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    }
-    
-    function fakeLanguages() {
-        console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.languages");
-        
-        return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    }
-    
-    function fakeMimeTypes() {
-        console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.mimeTypes");
-        
-        return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    }
-    
-    function fakeOnLine() {
-        console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.onLine");
-        
-        return randomBoolean();
-    }
-    
-    function fakeOscpu() {
-        console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.oscpu");
-        
-        return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    }
-    
-    function fakePermissions() {
-        console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.permissions");
-        
-        return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    }
-    
-    function fakePlatform() {
-        console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.platform");
-        
-        return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    }
-    
-    function fakePlugins() {
-        console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.plugins");
-        
-        return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    }
-    
-    function fakeProduct() {
-        console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.product");
-        
-        return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    }
-    
-    function fakeServiceWorker() {
-        console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.serviceWorker");
-        
-        return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    }
-    
-    function fakeStorage() {
-        console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.storage");
-        
-        return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    }
-    
-    function fakeUserAgent() {
-        console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.userAgent");
-        
-        return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    }
-    
-    Object.defineProperties(Navigator.prototype, {
+    Object.defineProperties(window.navigator, {
         /*
         activeVRDisplays: {
-            value: fakeActiveVRDisplays(),
             configurable: false,
             enumerable: true,
-            writable: false
+            get: function fakeActiveVRDisplays() {
+                console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.activeVRDisplays");
+        
+                return fakeActiveVRDisplaysValue;
+            }
         },
         appCodeName: {
-            value: fakeAppCodeName(),
             configurable: false,
             enumerable: true,
-            writable: false
+            get: function fakeAppCodeName() {
+                console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.appCodeName");
+        
+                return fakeAppCodeNameValue;
+            }
         },
         */
+        
         appName: {
-            value: fakeAppName(),
             configurable: false,
             enumerable: true,
-            writable: false
+            get: function fakeAppName() {
+                console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.appName");
+        
+                return fakeAppNameValue;
+            }
         },
         appVersion: {
-            value: fakeAppVersion(),
             configurable: false,
             enumerable: true,
-            writable: false
+            get: function fakeAppVersion() {
+                console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.appVersion");
+        
+                return fakeAppVersionValue;
+            }
         },
+        
+        // TODO: This is getBattery() now
         /*
         battery: {
-            value: fakeBattery(),
             configurable: false,
             enumerable: true,
-            writable: false
+            get: function fakeBattery() {
+                console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.battery");
+        
+                return fakeBatteryValue;
+            }
         },
         connection: {
-            value: fakeConnection(),
             configurable: false,
             enumerable: true,
-            writable: false
+            get: function fakeConnection() {
+                console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.connection");
+        
+                return fakeConnectionValue;
+            }
         },
         geolocation: {
-            value: fakeGeoLocation(),
             configurable: false,
             enumerable: true,
-            writable: false
+            get: function fakeGeoLocation() {
+                console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.geolocation");
+        
+                return fakeGeoLocationValue;
+            }
         },
         */
+        
         hardwareConcurrency: {
-            value: fakeHardwareConcurrency(),
             configurable: false,
             enumerable: true,
-            writable: false
+            get: function fakeHardwareConcurrency() {
+                console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.hardwareConcurrency");
+        
+                return fakeHardwareConcurrencyValue;
+            }
         },
+        
+        // TODO: javaEnabled() is a method, not a property
         /*
         javaEnabled: {
-            value: fakeJavaEnabled(),
             configurable: false,
             enumerable: true,
-            writable: false
+            get: function fakeJavaEnabled() {
+                console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.javaEnabled");
+        
+                return fakeJavaEnabledValue;
+            }
         },
         */
+        
         language: {
-            value: fakeLanguage(),
             configurable: false,
             enumerable: true,
-            writable: false
+            get: function fakeLanguage() {
+                console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.language");
+        
+                return fakeLanguageValue;
+            }
         },
         languages: {
-            value: fakeLanguages(),
             configurable: false,
             enumerable: true,
-            writable: false
+            get: function fakeLanguages() {
+                console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.languages");
+        
+                return fakeLanguagesValue;
+            }
         },
         mimeTypes: {
-            value: fakeMimeTypes(),
             configurable: false,
             enumerable: true,
-            writable: false
+            get: function fakeMimeTypes() {
+                console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.mimeTypes");
+        
+                return fakeMimeTypesValue;
+            }
         },
         onLine: {
-            value: fakeOnLine(),
             configurable: false,
             enumerable: true,
-            writable: false
+            get: function fakeOnLine() {
+                console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.onLine");
+        
+                return fakeOnLineValue;
+            }
         },
         oscpu: {
-            value: fakeOscpu(),
             configurable: false,
             enumerable: true,
-            writable: false
+            get: function fakeOscpu() {
+                console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.oscpu");
+        
+                return fakeOscpuValue;
+            }
         },
+        
         /*
         permissions: {
-            value: fakePermissions(),
             configurable: false,
             enumerable: true,
-            writable: false
+            get: function fakePermissions() {
+                console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.permissions");
+        
+                return fakePermissionsValue;
+            }
         },
         */
+        
         platform: {
-            value: fakePlatform(),
             configurable: false,
             enumerable: true,
-            writable: false
+            get: function fakePlatform() {
+                console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.platform");
+        
+                return fakePlatformValue;
+            }
         },
         plugins: {
-            value: fakePlugins(),
             configurable: false,
             enumerable: true,
-            writable: false
+            get: function fakePlugins() {
+                console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.plugins");
+        
+                return fakePluginsValue;
+            }
         },
         product: {
-            value: fakeProduct(),
             configurable: false,
             enumerable: true,
-            writable: false
+            get: function fakeProduct() {
+                console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.product");
+        
+                return fakeProductValue;
+            }
         },
+        
         /*
         serviceWorker: {
-            value: fakeServiceWorker(),
             configurable: false,
             enumerable: true,
-            writable: false
+            get: function fakeServiceWorker() {
+                console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.serviceWorker");
+        
+                return fakeServiceWorkerValue;
+            }
         },
         storage: {
-            value: fakeStorage(),
             configurable: false,
             enumerable: true,
-            writable: false
+            get: function fakeStorage() {
+                console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.storage");
+        
+                return fakeStorageValue;
+            }
         },
         */
+        
         userAgent: {
-            value: fakeUserAgent(),
             configurable: false,
             enumerable: true,
-            writable: false
+            get: function fakeUserAgent() {
+                console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.userAgent");
+                
+                return fakeUserAgentValue;
+            }
         }
-    });
+            });
 })();

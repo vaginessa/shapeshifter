@@ -1,18 +1,17 @@
 (function() {
     'use strict';
     
-    function fakeReferrer() {
-        console.log("[ALERT] " + window.location.hostname + " accessed property Document.referrer");
-        
-        return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    }
+    const fakeReferrerValue = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
     
-    Object.defineProperties(Document.prototype, {
+    Object.defineProperties(window.document, {
         referrer: {
-            value: fakeReferrer(),
             configurable: false,
             enumerable: true,
-            writable: false
+            get: function fakeReferrer() {
+                console.log("[ALERT] " + window.location.hostname + " accessed property Document.referrer");
+        
+                return fakeReferrerValue;
+            }
         }
     });
 })();
