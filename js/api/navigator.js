@@ -1,34 +1,58 @@
 (function() {
     'use strict';
     
-    const fakeActiveVRDisplaysValue       = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    const fakeAppCodeNameValue            = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    const fakeAppNameValue                = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    const fakeAppVersionValue             = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    const fakeBatteryValue                = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    const fakeConnectionValue             = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    const fakeGeoLocationValue            = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    const fakeHardwareConcurrencyValue    = randomNumber(0, 9);
-    const fakeJavaEnabledValue            = randomBoolean();
-    const fakeLanguageValue               = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    const fakeLanguagesValue              = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    const fakeMimeTypesValue              = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    const fakeOnLineValue                 = randomBoolean();
-    const fakeOscpuValue                  = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    const fakePermissionsValue            = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    const fakePlatformValue               = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    const fakePluginsValue                = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    const fakeProductValue                = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    const fakeServiceWorkerValue          = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    const fakeStorageValue                = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    const fakeUserAgentValue              = randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    function fakeActiveVRDisplays(origin) {       Math.seedrandom(origin); return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"); }
+    function fakeAppCodeName(origin) {            Math.seedrandom(origin); return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"); }
+    function fakeAppName(origin) {                Math.seedrandom(origin); return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"); }
+    function fakeAppVersion(origin) {             Math.seedrandom(origin); return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"); }
+    function fakeBattery(origin) {                Math.seedrandom(origin); return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"); }
+    function fakeConnection(origin) {             Math.seedrandom(origin); return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"); }
+    function fakeGeoLocation(origin) {            Math.seedrandom(origin); return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"); }
+    function fakeHardwareConcurrency(origin) {    Math.seedrandom(origin); return randomNumber(0, 9); }
+    function fakeJavaEnabled(origin) {            Math.seedrandom(origin); return randomBoolean(); }
+    function fakeLanguage(origin) {               Math.seedrandom(origin); return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"); }
+    function fakeLanguages(origin) {              Math.seedrandom(origin); return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"); }
+    function fakeMimeTypes(origin) {              Math.seedrandom(origin); return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"); }
+    function fakeOnLine(origin) {                 Math.seedrandom(origin); return randomBoolean(); }
+    function fakeOscpu(origin) {                  Math.seedrandom(origin); return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"); }
+    function fakePermissions(origin) {            Math.seedrandom(origin); return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"); }
+    function fakePlatform(origin) {               Math.seedrandom(origin); return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"); }
+    function fakePlugins(origin) {                Math.seedrandom(origin); return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"); }
+    function fakeProduct(origin) {                Math.seedrandom(origin); return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"); }
+    function fakeServiceWorker(origin) {          Math.seedrandom(origin); return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"); }
+    function fakeStorage(origin) {                Math.seedrandom(origin); return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"); }
+    function fakeUserAgent(origin) {              Math.seedrandom(origin); return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"); }
+                           
+    const origin = window.location.hostname;
+                           
+    const fakeActiveVRDisplaysValue       = fakeActiveVRDisplays(origin);
+    const fakeAppCodeNameValue            = fakeAppCodeName(origin);
+    const fakeAppNameValue                = fakeAppName(origin);
+    const fakeAppVersionValue             = fakeAppVersion(origin);
+    const fakeBatteryValue                = fakeBattery(origin);
+    const fakeConnectionValue             = fakeConnection(origin);
+    const fakeGeoLocationValue            = fakeGeoLocation(origin);
+    const fakeHardwareConcurrencyValue    = fakeHardwareConcurrency(origin);
+    const fakeJavaEnabledValue            = fakeJavaEnabled(origin);
+    const fakeLanguageValue               = fakeLanguage(origin);
+    const fakeLanguagesValue              = fakeLanguages(origin);
+    const fakeMimeTypesValue              = fakeMimeTypes(origin);
+    const fakeOnLineValue                 = fakeOnLine(origin);
+    const fakeOscpuValue                  = fakeOscpu(origin);
+    const fakePermissionsValue            = fakePermissions(origin);
+    const fakePlatformValue               = fakePlatform(origin);
+    const fakePluginsValue                = fakePlugins(origin);
+    const fakeProductValue                = fakeProduct(origin);
+    const fakeServiceWorkerValue          = fakeServiceWorker(origin);
+    const fakeStorageValue                = fakeStorage(origin);
+    const fakeUserAgentValue              = fakeUserAgent(origin);                       
     
     Object.defineProperties(window.navigator, {
         /*
         activeVRDisplays: {
             configurable: false,
             enumerable: true,
-            get: function fakeActiveVRDisplays() {
+            get: function getActiveVRDisplays() {
                 console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.activeVRDisplays");
         
                 return fakeActiveVRDisplaysValue;
@@ -37,7 +61,7 @@
         appCodeName: {
             configurable: false,
             enumerable: true,
-            get: function fakeAppCodeName() {
+            get: function getAppCodeName() {
                 console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.appCodeName");
         
                 return fakeAppCodeNameValue;
@@ -48,7 +72,7 @@
         appName: {
             configurable: false,
             enumerable: true,
-            get: function fakeAppName() {
+            get: function getAppName() {
                 console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.appName");
         
                 return fakeAppNameValue;
@@ -57,7 +81,7 @@
         appVersion: {
             configurable: false,
             enumerable: true,
-            get: function fakeAppVersion() {
+            get: function getAppVersion() {
                 console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.appVersion");
         
                 return fakeAppVersionValue;
@@ -69,7 +93,7 @@
         battery: {
             configurable: false,
             enumerable: true,
-            get: function fakeBattery() {
+            get: function getBattery() {
                 console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.battery");
         
                 return fakeBatteryValue;
@@ -78,7 +102,7 @@
         connection: {
             configurable: false,
             enumerable: true,
-            get: function fakeConnection() {
+            get: function getConnection() {
                 console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.connection");
         
                 return fakeConnectionValue;
@@ -87,7 +111,7 @@
         geolocation: {
             configurable: false,
             enumerable: true,
-            get: function fakeGeoLocation() {
+            get: function getGeoLocation() {
                 console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.geolocation");
         
                 return fakeGeoLocationValue;
@@ -98,7 +122,7 @@
         hardwareConcurrency: {
             configurable: false,
             enumerable: true,
-            get: function fakeHardwareConcurrency() {
+            get: function getHardwareConcurrency() {
                 console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.hardwareConcurrency");
         
                 return fakeHardwareConcurrencyValue;
@@ -110,7 +134,7 @@
         javaEnabled: {
             configurable: false,
             enumerable: true,
-            get: function fakeJavaEnabled() {
+            get: function getJavaEnabled() {
                 console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.javaEnabled");
         
                 return fakeJavaEnabledValue;
@@ -121,7 +145,7 @@
         language: {
             configurable: false,
             enumerable: true,
-            get: function fakeLanguage() {
+            get: function getLanguage() {
                 console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.language");
         
                 return fakeLanguageValue;
@@ -130,7 +154,7 @@
         languages: {
             configurable: false,
             enumerable: true,
-            get: function fakeLanguages() {
+            get: function getLanguages() {
                 console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.languages");
         
                 return fakeLanguagesValue;
@@ -139,7 +163,7 @@
         mimeTypes: {
             configurable: false,
             enumerable: true,
-            get: function fakeMimeTypes() {
+            get: function getMimeTypes() {
                 console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.mimeTypes");
         
                 return fakeMimeTypesValue;
@@ -148,7 +172,7 @@
         onLine: {
             configurable: false,
             enumerable: true,
-            get: function fakeOnLine() {
+            get: function getOnLine() {
                 console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.onLine");
         
                 return fakeOnLineValue;
@@ -157,7 +181,7 @@
         oscpu: {
             configurable: false,
             enumerable: true,
-            get: function fakeOscpu() {
+            get: function getOscpu() {
                 console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.oscpu");
         
                 return fakeOscpuValue;
@@ -168,7 +192,7 @@
         permissions: {
             configurable: false,
             enumerable: true,
-            get: function fakePermissions() {
+            get: function getPermissions() {
                 console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.permissions");
         
                 return fakePermissionsValue;
@@ -179,7 +203,7 @@
         platform: {
             configurable: false,
             enumerable: true,
-            get: function fakePlatform() {
+            get: function getPlatform() {
                 console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.platform");
         
                 return fakePlatformValue;
@@ -188,7 +212,7 @@
         plugins: {
             configurable: false,
             enumerable: true,
-            get: function fakePlugins() {
+            get: function getPlugins() {
                 console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.plugins");
         
                 return fakePluginsValue;
@@ -197,7 +221,7 @@
         product: {
             configurable: false,
             enumerable: true,
-            get: function fakeProduct() {
+            get: function getProduct() {
                 console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.product");
         
                 return fakeProductValue;
@@ -208,7 +232,7 @@
         serviceWorker: {
             configurable: false,
             enumerable: true,
-            get: function fakeServiceWorker() {
+            get: function getServiceWorker() {
                 console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.serviceWorker");
         
                 return fakeServiceWorkerValue;
@@ -217,7 +241,7 @@
         storage: {
             configurable: false,
             enumerable: true,
-            get: function fakeStorage() {
+            get: function getStorage() {
                 console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.storage");
         
                 return fakeStorageValue;
@@ -228,7 +252,7 @@
         userAgent: {
             configurable: false,
             enumerable: true,
-            get: function fakeUserAgent() {
+            get: function getUserAgent() {
                 console.log("[ALERT] " + window.location.hostname + " accessed property Navigator.userAgent");
                 
                 return fakeUserAgentValue;

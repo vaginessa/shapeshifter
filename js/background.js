@@ -1,64 +1,70 @@
 "use strict";
 
-function randomAcceptHeader() {
+function randomAcceptHeader(origin) {
 	return "NotYetImplemented";
 }
-function randomAcceptCharsetHeader() {
+function randomAcceptCharsetHeader(origin) {
 	return "NotYetImplemented";
 }
-function randomAcceptEncodingHeader() {
+function randomAcceptEncodingHeader(origin) {
 	return "NotYetImplemented";
 }
-function randomAcceptLanguageHeader() {
+function randomAcceptLanguageHeader(origin) {
+    Math.seedrandom(origin);
 	return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
 }
-function randomAuthorizationHeader() {
+function randomAuthorizationHeader(origin) {
 	return "NotYetImplemented";
 }
-function randomExpectHeader() {
+function randomExpectHeader(origin) {
 	return "NotYetImplemented";
 }
-function randomFromHeader() {
+function randomFromHeader(origin) {
 	return "NotYetImplemented";
 }
-function randomHostHeader() {
+function randomHostHeader(origin) {
 	return "NotYetImplemented";
 }
-function randomIfMatchHeader() {
+function randomIfMatchHeader(origin) {
 	return "NotYetImplemented";
 }
-function randomIfModifiedSinceHeader() {
+function randomIfModifiedSinceHeader(origin) {
 	return "NotYetImplemented";
 }
-function randomIfNoneMatchHeader() {
+function randomIfNoneMatchHeader(origin) {
 	return "NotYetImplemented";
 }
-function randomIfRangeHeader() {
+function randomIfRangeHeader(origin) {
 	return "NotYetImplemented";
 }
-function randomIfUnmodifiedSinceHeader() {
+function randomIfUnmodifiedSinceHeader(origin) {
 	return "NotYetImplemented";
 }
-function randomMaxForwardsHeader() {
+function randomMaxForwardsHeader(origin) {
 	return "NotYetImplemented";
 }
-function randomProxyAuthorizationHeader() {
+function randomProxyAuthorizationHeader(origin) {
 	return "NotYetImplemented";
 }
-function randomRangeHeader() {
+function randomRangeHeader(origin) {
 	return "NotYetImplemented";
 }
-function randomRefererHeader() {
+function randomRefererHeader(origin) {
+    Math.seedrandom(origin);
     return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
 }
-function randomTEHeader() {
+function randomTEHeader(origin) {
 	return "NotYetImplemented";
 }
-function randomUserAgentHeader() {
+function randomUserAgentHeader(origin) {
+    Math.seedrandom(origin);
 	return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
 }
 
 function rewriteHttpHeaders(e) {
+    var serverUrl = new URL(e.url);
+    var origin = serverUrl.hostname;
+    
 	for (var header of e.requestHeaders) {
 		if (header.name.toLowerCase() === "accept") {
 		}
@@ -67,7 +73,7 @@ function rewriteHttpHeaders(e) {
 		else if (header.name.toLowerCase() === "accept-encoding") {
 		}
 		else if (header.name.toLowerCase() === "accept-language") {
-            header.value = randomAcceptLanguageHeader();
+            header.value = randomAcceptLanguageHeader(origin);
 		}
 		else if (header.name.toLowerCase() === "authorization") {
 		}
@@ -94,12 +100,12 @@ function rewriteHttpHeaders(e) {
 		else if (header.name.toLowerCase() === "range") {
 		}
 		else if (header.name.toLowerCase() === "referer") {
-			header.value = randomRefererHeader();
+			header.value = randomRefererHeader(origin);
 		}
 		else if (header.name.toLowerCase() === "te") {
 		}
 		else if (header.name.toLowerCase() === "user-agent") {
-			header.value = randomUserAgentHeader();
+			header.value = randomUserAgentHeader(origin);
 		}		
 	}
 
