@@ -11,7 +11,17 @@ function randomAcceptEncodingHeader(origin) {
 }
 function randomAcceptLanguageHeader(origin) {
     Math.seedrandom(origin);
-	return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    
+    const language = languages[randomNumber(0, languages.length)];
+    
+    const languageParts = language.split("-");
+    
+    switch (languageParts.length) {
+        case 2:
+            return languageParts[0] + "-" + languageParts[1] + ";q=0.8," + languageParts[0] + ";q=0.6";
+        case 3:
+            // TODO: How to display Cyrillic or Latin versions of the same language???
+    }
 }
 function randomAuthorizationHeader(origin) {
 	return "NotYetImplemented";
@@ -51,14 +61,44 @@ function randomRangeHeader(origin) {
 }
 function randomRefererHeader(origin) {
     Math.seedrandom(origin);
-    return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+        
+    const firstWord = words[randomNumber(0, words.length)];
+    const secondWord = words[randomNumber(0, words.length)];
+    const thirdWord = words[randomNumber(0, words.length)];
+    const firstDirName = words[randomNumber(0, words.length)];
+    const secondDirName = words[randomNumber(0, words.length)];
+    const thirdDirName = words[randomNumber(0, words.length)];
+    
+    const protocols = ["https", "http"];
+    
+    const protocol = protocols[randomNumber(0, protocols.length)];
+    
+    const tlds = ["com", "net", "org", "gov", "info", "xxx"];
+    
+    const tld = tlds[randomNumber(0, tlds.length)];
+        
+    const referrer = protocol + "://www." + firstWord + secondWord + thirdWord + "." + tld + "/" + firstDirName + "/" + secondDirName + "/" + thirdDirName;
+        
+    return referrer;
 }
 function randomTEHeader(origin) {
 	return "NotYetImplemented";
 }
 function randomUserAgentHeader(origin) {
     Math.seedrandom(origin);
-	return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    const randomBrowser = randomNumber(0, 5);
+    switch (randomBrowser) {
+        case 0:
+            return ieUserAgents[randomNumber(0, ieUserAgents.length)];
+        case 1:
+            return firefoxUserAgents[randomNumber(0, firefoxUserAgents.length)];
+        case 2:
+            return chromeUserAgents[randomNumber(0, chromeUserAgents.length)];
+        case 3:
+            return safariUserAgents[randomNumber(0, safariUserAgents.length)];
+        case 4:
+            return operaUserAgents[randomNumber(0, operaUserAgents.length)];
+    }
 }
 
 function rewriteHttpHeaders(e) {

@@ -13,7 +13,7 @@
     
     "background": {
         "persistent": true,
-        "scripts": ["lib/seedrandom.min.js", "js/random.js", "js/background.js"]
+        "scripts": ["js/ua.js", "js/words.js", "js/lang.js", "lib/seedrandom.min.js", "js/random.js", "js/background.js"]
     },
     "browser_action": {
         "default_title": "Shape Shifter",
@@ -33,6 +33,9 @@
         "<all_urls>"
     ],
     "web_accessible_resources": [
+        "js/ua.js",
+        "js/words.js",
+        "js/lang.js",
         "lib/seedrandom.min.js",
         "js/random.js",
         "js/api/document.js",
