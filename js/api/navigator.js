@@ -4,7 +4,11 @@
     function fakeActiveVRDisplays(origin) {       Math.seedrandom(origin); return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"); }
     function fakeAppCodeName(origin) {            Math.seedrandom(origin); return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"); }
     function fakeAppName(origin) {                Math.seedrandom(origin); return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"); }
-    function fakeAppVersion(origin) {             Math.seedrandom(origin); return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"); }
+    
+    // TODO: Is always returning "5.0" safe?
+    function fakeAppVersion(origin) {
+        return "5.0";
+    }
     function fakeBattery(origin) {                Math.seedrandom(origin); return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"); }
     function fakeConnection(origin) {             Math.seedrandom(origin); return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"); }
     function fakeGeoLocation(origin) {            Math.seedrandom(origin); return randomString(32, "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"); }
@@ -107,9 +111,7 @@
         
                 return fakeAppCodeNameValue;
             }
-        },
-        */
-        
+        },        
         appName: {
             configurable: false,
             enumerable: true,
@@ -119,6 +121,8 @@
                 return fakeAppNameValue;
             }
         },
+        */
+        
         appVersion: {
             configurable: false,
             enumerable: true,
@@ -210,6 +214,8 @@
                 return fakeMimeTypesValue;
             }
         },
+        
+        /*
         onLine: {
             configurable: false,
             enumerable: true,
@@ -219,6 +225,8 @@
                 return fakeOnLineValue;
             }
         },
+        */
+        
         oscpu: {
             configurable: false,
             enumerable: true,
@@ -259,6 +267,8 @@
                 return fakePluginsValue;
             }
         },
+        
+        /*
         product: {
             configurable: false,
             enumerable: true,
@@ -268,8 +278,6 @@
                 return fakeProductValue;
             }
         },
-        
-        /*
         serviceWorker: {
             configurable: false,
             enumerable: true,
