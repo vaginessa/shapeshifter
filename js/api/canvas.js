@@ -6,34 +6,19 @@
     var originalMozGetAsFile = HTMLCanvasElement.prototype.mozGetAsFile;
     var originalGetImageData = CanvasRenderingContext2D.prototype.getImageData;
     //var originalReadPixels = WebGLRenderingContext.prototype.readPixels;
-    // TODO: What about WebGL2 ???
     
     function randomiseImageData(image) {        
-        var imageLength = image.data.length;
+        var imageData = image.data;
         
-        for (var i = 0; i < 1024; i++) {
-            var status = randomBoolean();
-            
-            var value;
-            
-            if (status) {
-                value = 1;
-            }
-            else {
-                value = -1;
-            }
-            
-            image.data[i] += value;
+        var imageLength = imageData.length;
+        
+        for (var i = 0; i < imageLength; i++) {
+            imageData[i] += 1;
         }
         
-        //for (var i = 0; i < imageLength;) {
-        //    image.data[i++] += randomBoolean() ? 1 : -1;
-        //    image.data[i++] += randomBoolean() ? 1 : -1;
-        //    image.data[i++] += randomBoolean() ? 1 : -1;
-        //    image.data[i++] += randomBoolean() ? 1 : -1;
-        //}
+        var modifiedImage = new ImageData(image.width, image.height);
         
-        return image;
+        return modifiedImage;
     }
     
     CanvasRenderingContext2D.prototype.getImageData = function(sx, sy, sw, sh) {
