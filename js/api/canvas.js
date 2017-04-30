@@ -3,20 +3,27 @@
     
     var originalToDataURL = HTMLCanvasElement.prototype.toDataURL;
     var originalToBlob = HTMLCanvasElement.prototype.toBlob;
-    var originalMozGetAsFile = HTMLCanvasElement.prototype.mozGetAsFile;
+    //var originalMozGetAsFile = HTMLCanvasElement.prototype.mozGetAsFile;
     var originalGetImageData = CanvasRenderingContext2D.prototype.getImageData;
     //var originalReadPixels = WebGLRenderingContext.prototype.readPixels;
     
-    function randomiseImageData(image) {        
-        var imageData = image.data;
+    // TODO: This method runs for each different data access method
+    // aka. toDataURL(), toBlob() etc. Could the value be cached for faster access?
+    function randomiseImageData(image) {
+        const origin = window.location.hostname;
         
-        var imageLength = imageData.length;
+        Math.seedrandom(origin);
         
-        for (var i = 0; i < imageLength; i++) {
-            imageData[i] += 1;
+        var length = image.data.length;
+        
+        var array = new Uint8ClampedArray(length);
+        
+        // TODO: Need a faster and more effective spoofing algorithm
+        for (var i = 0; i < length; i++) {
+            array[i] = image.data[i] + (randomBoolean() ? 1 : -1);
         }
         
-        var modifiedImage = new ImageData(image.width, image.height);
+        var modifiedImage = new ImageData(array, image.width, image.height);
         
         return modifiedImage;
     }
@@ -26,20 +33,13 @@
         
         const origin = window.location.hostname;
         
-        Math.seedrandom(origin);
-        
         var image = originalGetImageData.call(this, sx, sy, sw, sh);
         
         return randomiseImageData(image);
     };
     
     HTMLCanvasElement.prototype.toDataURL = function(type, encoderOptions) {
-        
         console.log("[ALERT] " + window.location.hostname + " called HTMLCanvasElement.toDataURL()");
-        
-        const origin = window.location.hostname;
-        
-        Math.seedrandom(origin);
         
         var ctx = HTMLCanvasElement.prototype.getContext.call(this, "2d") ||
             HTMLCanvasElement.prototype.getContext.call(this, "webgl") ||
@@ -48,7 +48,6 @@
             HTMLCanvasElement.prototype.getContext.call(this, "experimental-webgl2");
         
         if (ctx instanceof CanvasRenderingContext2D) { // For '2D' canvas. Only works with 2D for now.
-            //var image = ctx.getImageData(0, 0, this.width, this.height);
             var image = originalGetImageData.call(ctx, 0, 0, this.width, this.height);
             
             var randomisedImage = randomiseImageData(image);
@@ -69,12 +68,7 @@
     };
     
     HTMLCanvasElement.prototype.toBlob = function(callback, mimeType, qualityArgument) {
-        
         console.log("[ALERT] " + window.location.hostname + " called HTMLCanvasElement.toBlob()");
-        
-        const origin = window.location.hostname;
-        
-        Math.seedrandom(origin);
         
         var ctx = HTMLCanvasElement.prototype.getContext.call(this, "2d") ||
             HTMLCanvasElement.prototype.getContext.call(this, "webgl") ||
@@ -83,7 +77,6 @@
             HTMLCanvasElement.prototype.getContext.call(this, "experimental-webgl2");
         
         if (ctx instanceof CanvasRenderingContext2D) { // For '2D' canvas. Only works with 2D for now.
-            //var image = ctx.getImageData(0, 0, this.width, this.height);
             var image = originalGetImageData.call(ctx, 0, 0, this.width, this.height);
             
             var randomisedImage = randomiseImageData(image);
@@ -106,10 +99,6 @@
     HTMLCanvasElement.prototype.mozGetAsFile = function(name, type) {
         console.log("[ALERT] " + window.location.hostname + " called HTMLCanvasElement.mozGetAsFile()");
         
-        const origin = window.location.hostname;
-        
-        Math.seedrandom(origin);
-        
         var ctx = HTMLCanvasElement.prototype.getContext.call(this, "2d") ||
             HTMLCanvasElement.prototype.getContext.call(this, "webgl") ||
             HTMLCanvasElement.prototype.getContext.call(this, "experimental-webgl") ||
@@ -117,7 +106,6 @@
             HTMLCanvasElement.prototype.getContext.call(this, "experimental-webgl2");
         
         if (ctx instanceof CanvasRenderingContext2D) { // For '2D' canvas. Only works with 2D for now.
-            //var image = ctx.getImageData(0, 0, this.width, this.height);
             var image = originalGetImageData.call(ctx, 0, 0, this.width, this.height);
             
             var randomisedImage = randomiseImageData(image);
