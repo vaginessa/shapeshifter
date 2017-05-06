@@ -11,11 +11,11 @@ function randomAcceptEncodingHeader(origin) {
 }
 function randomAcceptLanguageHeader(origin) {
     Math.seedrandom(origin);
-    
+
     const language = languages[randomNumber(0, languages.length)];
-    
+
     const languageParts = language.split("-");
-    
+
     switch (languageParts.length) {
         case 2:
             return languageParts[0] + "-" + languageParts[1] + ";q=0.8," + languageParts[0] + ";q=0.6";
@@ -61,24 +61,24 @@ function randomRangeHeader(origin) {
 }
 function randomRefererHeader(origin) {
     Math.seedrandom(origin);
-        
+
     const firstWord = words[randomNumber(0, words.length)];
     const secondWord = words[randomNumber(0, words.length)];
     const thirdWord = words[randomNumber(0, words.length)];
     const firstDirName = words[randomNumber(0, words.length)];
     const secondDirName = words[randomNumber(0, words.length)];
     const thirdDirName = words[randomNumber(0, words.length)];
-    
+
     const protocols = ["https", "http"];
-    
+
     const protocol = protocols[randomNumber(0, protocols.length)];
-    
+
     const tlds = ["com", "net", "org", "gov", "info", "xxx"];
-    
+
     const tld = tlds[randomNumber(0, tlds.length)];
-        
+
     const referrer = protocol + "://www." + firstWord + secondWord + thirdWord + "." + tld + "/" + firstDirName + "/" + secondDirName + "/" + thirdDirName;
-        
+
     return referrer;
 }
 function randomTEHeader(origin) {
@@ -104,7 +104,7 @@ function randomUserAgentHeader(origin) {
 function rewriteHttpHeaders(e) {
     var serverUrl = new URL(e.url);
     var origin = serverUrl.hostname;
-    
+
 	for (var header of e.requestHeaders) {
 		if (header.name.toLowerCase() === "accept") {
 		}
@@ -146,7 +146,7 @@ function rewriteHttpHeaders(e) {
 		}
 		else if (header.name.toLowerCase() === "user-agent") {
 			header.value = randomUserAgentHeader(origin);
-		}		
+		}
 	}
 
 	return {requestHeaders: e.requestHeaders};

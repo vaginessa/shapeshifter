@@ -7,10 +7,10 @@
         "32": "icons/person-32.png",
         "48": "icons/person-48.png"
     },
-    
+
     // TODO: Migrate from background pages to event pages
     // TODO: once webRequest API supports event pages.
-    
+
     "background": {
         "persistent": true,
         "scripts": ["js/ua.js", "js/words.js", "js/lang.js", "lib/seedrandom.min.js", "js/random.js", "js/background.js"]

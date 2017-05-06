@@ -5,11 +5,11 @@ function inject(filePath, callback) {
         this.remove();
     };
     (document.head || document.documentElement).appendChild(script);
-    
+
     callback();
 }
 
-inject("js/ua.js", function () {
+inject("js/ua.js", function() {
     inject("js/words.js", function() {
         inject("js/lang.js", function() {
             inject("lib/seedrandom.min.js", function() {
@@ -21,13 +21,13 @@ inject("js/ua.js", function () {
                         console.log("[INFO] Injected Navigator API ...");
                     });
                     inject("js/api/canvas.js", function() {
-                        console.log("[INFO] Injected Canvas API ...")
+                        console.log("[INFO] Injected Canvas API ...");
                     });
                     inject("js/api/history.js", function() {
-                        console.log("[INFO] Injected History API ...")
+                        console.log("[INFO] Injected History API ...");
                     });
                     inject("js/api/battery.js", function() {
-                        console.log("[INFO] Injected Battery API ...")
+                        console.log("[INFO] Injected Battery API ...");
                     });
                 });
             });
